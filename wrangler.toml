@@ -10,7 +10,7 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "rayan8"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "b60339fb-9dbb-4357-a9af-ca4d068d48b5"
 migrations_dir = "migrations"
 
 [vars]
