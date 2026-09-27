@@ -1,0 +1,7 @@
+{
+  "name":"amins-auto-service-production",
+  "version":"1.0.0",
+  "private":true,
+  "scripts":{"dev":"wrangler dev","deploy":"wrangler deploy","db:migrate":"wrangler d1 migrations apply DB --local"},
+  "devDependencies":{"wrangler":"^4.38.0"}
+}
