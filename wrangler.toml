@@ -16,5 +16,7 @@ class_name = "BookingCoordinator"
 tag = "v1"
 new_sqlite_classes = ["BookingCoordinator"]
 
+# ...
 [vars]
-# admin.html" = "admin.html
+"admin.html" = "admin.html"
+# ...
