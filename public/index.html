@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armando al Pantheon | Ristorante Storico Roma Dal 1961</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGreen: '#232E26',
+                            lightGreen: '#324036',
+                            cream: '#F9F6EE',
+                            creamDark: '#EDE8D8',
+                            terracotta: '#A84B29',
+                            charcoal: '#1C1917',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        handwritten: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F6EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        
+        .wave-top-cream {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60C240 120 480 120 720 60C960 0 1200 0 1440 60V120H0V60Z' fill='%23F9F6EE'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+        }
+        
+        .wave-bottom-cream {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60C240 0 480 0 720 60C960 120 1200 120 1440 60V0H0V60Z' fill='%23F9F6EE'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+        }
+
+        .polaroid-frame {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease;
+        }
+        .polaroid-frame:hover {
+            transform: scale(1.02) rotate(0deg) !important;
+        }
+
+        .category-tab.active {
+            background-color: #232E26;
+            color: #ffffff;
+            border-color: #232E26;
+        }
+    </style>
+<style>
+      html { scroll-padding-top: 88px; }
+      body { overflow-wrap: anywhere; }
+      img { max-width:100%; }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
+      #bookingSubmit:disabled { cursor: wait; }
+    </style>
+</head>
+<body class="font-sans bg-[#FAF8F5] text-brand-charcoal antialiased selection:bg-brand-gold selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-stone-200/60" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex flex-col items-start group">
+                <span class="font-serif text-2xl tracking-wider font-bold text-brand-darkGreen group-hover:text-brand-gold transition-colors">
+                    Armando
+                </span>
+                <span class="text-[9px] uppercase tracking-[0.25em] text-brand-gold font-medium -mt-1">
+                    AL PANTHEON · DAL 1961
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-stone-700">
+                <a href="#home" class="hover:text-brand-gold transition-colors" data-i18n="nav.home">Home</a>
+                <a href="#storia" class="hover:text-brand-gold transition-colors" data-i18n="nav.storia">La Storia</a>
+                <a href="#menu" class="hover:text-brand-gold transition-colors" data-i18n="nav.menu">Il Menu</a>
+                <a href="#cantina" class="hover:text-brand-gold transition-colors" data-i18n="nav.cantina">La Cantina</a>
+                <a href="#galleria" class="hover:text-brand-gold transition-colors" data-i18n="nav.galleria">Galleria</a>
+                <a href="#news" class="hover:text-brand-gold transition-colors" data-i18n="nav.news">News & Libri</a>
+                <a href="#contatti" class="hover:text-brand-gold transition-colors" data-i18n="nav.contatti">Contatti</a>
+            </nav>
+
+            <!-- Action Controls -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <!-- Phone Direct Link -->
+                <a href="tel:+213674361675" class="text-xs font-mono font-bold text-stone-800 hover:text-brand-gold flex items-center gap-1.5 bg-stone-100 px-3 py-1.5 rounded-full border border-stone-200">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-gold"></i>
+                    <span>+213674361675</span>
+                </a>
+
+                <!-- Language Switcher -->
+                <button id="langToggle" onclick="toggleLanguage()" class="text-xs font-semibold px-2.5 py-1 rounded-full border border-stone-300 text-stone-600 hover:border-brand-gold hover:text-brand-gold transition-all">
+                    IT / <span class="text-stone-400">EN</span>
+                </button>
+
+                <!-- Reservation Button -->
+                <button onclick="openBookingModal()" class="bg-brand-darkGreen hover:bg-brand-lightGreen text-white text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-gold"></i>
+                    <span data-i18n="nav.book">Prenota un Tavolo</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="flex md:hidden items-center gap-2">
+                <button id="mobileLangToggle" onclick="toggleLanguage()" class="text-xs font-semibold px-2 py-1 rounded border border-stone-300 text-stone-600">
+                    IT/EN
+                </button>
+                <button onclick="toggleMobileMenu()" class="p-2 text-stone-700 hover:text-brand-darkGreen">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-6 space-y-4">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.home">Home</a>
+            <a href="#storia" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.storia">La Storia</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.menu">Il Menu</a>
+            <a href="#cantina" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.cantina">La Cantina</a>
+            <a href="#galleria" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.galleria">Galleria</a>
+            <a href="#news" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.news">News & Libri</a>
+            <a href="#contatti" onclick="toggleMobileMenu()" class="block text-base font-medium text-stone-800 hover:text-brand-gold" data-i18n="nav.contatti">Contatti</a>
+            <div class="pt-4 border-t border-stone-100 flex flex-col gap-3">
+                <a href="tel:+213674361675" class="text-center font-mono text-sm font-bold text-stone-900 py-2 bg-stone-100 rounded-lg">
+                    📞 +213674361675
+                </a>
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full bg-brand-darkGreen text-white text-sm font-semibold uppercase tracking-wider py-3 rounded-full flex items-center justify-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4 text-brand-gold"></i>
+                    <span data-i18n="nav.book">Prenota un Tavolo</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=2000&q=85" alt="Pantheon Rome Table View" class="w-full h-full object-cover object-center transform scale-105 filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-900/85 via-stone-900/45 to-stone-900/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center text-white pt-12 pb-24">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
+                <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
+                <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-stone-200" data-i18n="hero.subtitle">
+                    RISTORANTE · OSTERIA · ROMA
+                </p>
+            </div>
+            
+            <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-6 drop-shadow-md" data-i18n="hero.title">
+                Tradizione dal 1961
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-xl font-light text-stone-200 mb-10 leading-relaxed drop-shadow" data-i18n="hero.description">
+                Un piccolo ristorante nel cuore di Roma, a pochi passi dal Pantheon. Cucina autentica, tradizione di famiglia, sapori senza tempo.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#storia" class="bg-white text-brand-darkGreen hover:bg-brand-cream text-sm font-semibold uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-3 group">
+                    <span data-i18n="hero.cta">Scopri la nostra storia</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform text-brand-gold"></i>
+                </a>
+                
+                <button onclick="openBookingModal()" class="bg-brand-gold hover:bg-yellow-600 text-white text-sm font-semibold uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+                    <i data-lucide="utensils" class="w-4 h-4"></i>
+                    <span data-i18n="hero.bookBtn">Prenota Ora</span>
+                </button>
+            </div>
+
+            <!-- Floating Location Pill -->
+            <div class="mt-16 inline-flex flex-wrap items-center justify-center gap-4 text-xs text-stone-300 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10">
+                <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-gold"></i> Salita de' Crescenzi 31, Roma</span>
+                <span>·</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-gold"></i> +213674361675</span>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 flex flex-col items-center text-xs tracking-widest uppercase gap-2 z-10">
+            <span data-i18n="hero.scroll">Scorri per esplorare</span>
+            <div class="w-5 h-8 border-2 border-white/40 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-brand-gold rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="storia" class="relative bg-brand-cream text-stone-800 py-24 sm:py-32">
+        <div class="absolute -top-16 left-0 right-0 h-16 wave-top-cream pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Column: Story Text -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold block" data-i18n="storia.tag">
+                        LA NOSTRA STORIA
+                    </span>
+
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkGreen leading-tight" data-i18n="storia.title">
+                        Una famiglia, una passione
+                    </h2>
+
+                    <p class="text-stone-600 leading-relaxed text-base sm:text-lg font-light" data-i18n="storia.text1">
+                        Dal 1961 la famiglia Gargioli porta avanti la tradizione culinaria romana, con la stessa passione e dedizione di sempre. Un luogo intimo e autentico, dove la storia si unisce al gusto.
+                    </p>
+
+                    <p class="text-stone-600 leading-relaxed text-sm sm:text-base font-light" data-i18n="storia.text2">
+                        Fondata da Armando Gargioli, l'osteria è diventata un punto di riferimento culturale e gastronomico. Oggi, Claudio, Fabiana e Chiara Maria mantengono viva l'anima di un tempo, reinterpretando con cura i sapori autentici della tradizione capitolina.
+                    </p>
+
+                    <div class="pt-4 flex items-center gap-6">
+                        <a href="#news" class="inline-flex items-center gap-2 border-b-2 border-brand-gold text-brand-darkGreen font-semibold hover:text-brand-gold transition-colors pb-1 text-sm uppercase tracking-wider">
+                            <span data-i18n="storia.more">Scopri di più</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <div class="font-handwritten text-3xl text-brand-gold font-bold rotate-1">
+                            Famiglia Gargioli
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Vintage Photos -->
+                <div class="lg:col-span-7 relative flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 lg:pt-0">
+                    <div class="polaroid-frame bg-white p-4 pb-6 rounded shadow-xl -rotate-2 w-full sm:w-72 border border-stone-200/80">
+                        <div class="relative overflow-hidden rounded mb-3 bg-stone-200 aspect-[4/3]">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Armando Gargioli Founder" class="w-full h-full object-cover filter grayscale contrast-125">
+                            <div class="absolute top-2 right-2 bg-brand-darkGreen text-brand-gold font-serif text-xs font-bold px-2 py-0.5 rounded">
+                                Dal 1961
+                            </div>
+                        </div>
+                        <p class="font-serif text-stone-800 text-center text-sm font-semibold">Armando Gargioli</p>
+                        <p class="text-[11px] text-stone-500 text-center font-sans" data-i18n="storia.photo1Sub">Il Fondatore nel laboratorio</p>
+                    </div>
+
+                    <div class="polaroid-frame bg-white p-4 pb-6 rounded shadow-2xl rotate-3 w-full sm:w-80 border border-stone-200/80 sm:-mt-8">
+                        <div class="relative overflow-hidden rounded mb-3 bg-stone-200 aspect-[4/3]">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Osteria Dining Room" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-serif text-stone-800 text-center text-sm font-semibold">La nostra Sala Storica</p>
+                        <p class="text-[11px] text-stone-500 text-center font-sans" data-i18n="storia.photo2Sub">14 Tavoli sotto travi in legno</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="bg-[#FAF8F5] py-24 border-t border-stone-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold block mb-2" data-i18n="menu.subtitle">
+                        CARTA DEL RISTORANTE
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkGreen" data-i18n="menu.title">
+                        I sapori della tradizione romana
+                    </h2>
+                    <p class="text-stone-600 mt-2 max-w-xl text-sm sm:text-base font-light" data-i18n="menu.desc">
+                        Tutti i piatti storici preparati secondo la ricetta originale della famiglia Gargioli con ingredienti d'eccellenza.
+                    </p>
+                </div>
+
+                <!-- Category Filters Tabs -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="menuFilters">
+                    <button onclick="filterMenu('all')" class="category-tab active bg-brand-darkGreen text-white border border-brand-darkGreen text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full transition-all">Tutti i Piatti</button>
+                    <button onclick="filterMenu('primi')" class="category-tab bg-white border border-stone-300 text-stone-700 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full transition-all">Primi Piatti</button>
+                    <button onclick="filterMenu('secondi')" class="category-tab bg-white border border-stone-300 text-stone-700 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full transition-all">Secondi</button>
+                    <button onclick="filterMenu('antipasti')" class="category-tab bg-white border border-stone-300 text-stone-700 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full transition-all">Antipasti</button>
+                    <button onclick="filterMenu('contorni')" class="category-tab bg-white border border-stone-300 text-stone-700 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full transition-all">Contorni</button>
+                    <button onclick="filterMenu('dolci')" class="category-tab bg-white border border-stone-300 text-stone-700 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full transition-all">Dolci</button>
+                </div>
+            </div>
+
+            <!-- Complete Dishes Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="dishesGrid">
+                
+                <!-- PRIMI 1: Carbonara -->
+                <div class="dish-card primi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=800&q=80" alt="Rigatoni alla Carbonara" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 18.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Primi Piatti</span>
+                            <span class="text-[10px] font-semibold text-stone-400">Iconico</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Rigatoni alla Carbonara</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Guanciale di Amatrice, tuorli d'uovo freschi, Pecorino Romano DOP e pepe nero macinato al momento.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Ricetta dal 1961</span>
+                            <button onclick="openMenuModal('Rigatoni alla Carbonara')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRIMI 2: Cacio e Pepe -->
+                <div class="dish-card primi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281316?auto=format&fit=crop&w=800&q=80" alt="Tonnarelli Cacio e Pepe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 17.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Primi Piatti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Tonnarelli Cacio e Pepe</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Pasta fresca fatta in casa, cremosità perfetta con Pecorino Romano DOP e pepe di Sarawak tostato.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Tradizione pura</span>
+                            <button onclick="openMenuModal('Tonnarelli Cacio e Pepe')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRIMI 3: Amatriciana -->
+                <div class="dish-card primi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Rigatoni all'Amatriciana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 18.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Primi Piatti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Rigatoni all'Amatriciana</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Salsa di pomodoro San Marzano, guanciale croccante sfumato con vino bianco e Pecorino Romano.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Classico Romano</span>
+                            <button onclick="openMenuModal('Rigatoni all\'Amatriciana')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRIMI 4: Gricia -->
+                <div class="dish-card primi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" alt="Spaghetti alla Gricia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 18.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Primi Piatti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Spaghetti alla Gricia</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">L'antenata dell'Amatriciana: guanciale rosolato, pecorino romano e pepe, senza pomodoro.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Storico</span>
+                            <button onclick="openMenuModal('Spaghetti alla Gricia')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECONDI 1: Saltimbocca -->
+                <div class="dish-card secondi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Saltimbocca alla Romana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 22.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Secondi Piatti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Saltimbocca alla Romana</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Tenerissime fettine di vitello con prosciutto crudo di Parma e salvia, sfumate al vino bianco.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Specialità Casa</span>
+                            <button onclick="openMenuModal('Saltimbocca alla Romana')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECONDI 2: Trippa -->
+                <div class="dish-card secondi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80" alt="Trippa alla Romana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 20.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Secondi Piatti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Trippa alla Romana</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Lentamente stufata al pomodoro San Marzano con mentuccia selvatica romana e abbondante pecorino.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Ricetta Storica</span>
+                            <button onclick="openMenuModal('Trippa alla Romana')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECONDI 3: Pajata -->
+                <div class="dish-card secondi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Pajata Tradizionale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 22.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Secondi Piatti</span>
+                            <span class="text-[10px] font-semibold text-brand-terracotta">Raro</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Pajata Tradizionale</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Pajata di vitello da latte cotta nel pomodoro con spezie e pecorino. Raro piatto del quinto quarto.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Quinto Quarto</span>
+                            <button onclick="openMenuModal('Pajata Tradizionale')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECONDI 4: Vitello Tonnato -->
+                <div class="dish-card secondi bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Vitello Tonnato" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 21.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Secondi Piatti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Vitello Tonnato</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Magatello di vitello cotto a bassa temperatura servito con la classica salsa vellutata di tonno e capperi.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Cottura Lenta</span>
+                            <button onclick="openMenuModal('Vitello Tonnato')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANTIPASTI 1: Mozzarella & Carciofi -->
+                <div class="dish-card antipasti bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1592417817098-8f3d6ef23a85?auto=format&fit=crop&w=800&q=80" alt="Mozzarella e Carciofi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 16.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Antipasti</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Mozzarella & Carciofi</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Mozzarella di bufala campana DOP servita con carciofi romani arrostiti e olio extravergine.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Freschezza DOP</span>
+                            <button onclick="openMenuModal('Mozzarella & Carciofi')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTORNI 1: Carciofo alla Romana -->
+                <div class="dish-card contorni bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1515516969-d4008cc6241a?auto=format&fit=crop&w=800&q=80" alt="Carciofo alla Romana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 12.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Contorni</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Carciofo alla Romana</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Carciofo romanesco stufato a fuoco lento con aglio, mentuccia selvatica e olio EVO d'oliva.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Stagionale</span>
+                            <button onclick="openMenuModal('Carciofo alla Romana')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTORNI 2: Puntarelle con Acciughe -->
+                <div class="dish-card contorni bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" alt="Puntarelle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 11.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Contorni</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Puntarelle con Acciughe</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Germogli di cicoria croccanti conditi con emulsione di acciughe di Sciacca, aglio e aceto di vino.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Croccante</span>
+                            <button onclick="openMenuModal('Puntarelle con Acciughe')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOLCI: Tiramisù -->
+                <div class="dish-card dolci bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80" alt="Tiramisù Armando" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-darkGreen/90 text-brand-gold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">€ 10.00</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Dolci</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-brand-gold transition-colors">Tiramisù Armando</h3>
+                        <p class="text-xs text-stone-500 mt-2 font-light leading-relaxed">Dessert della casa fatto quotidianamente con crema al mascarpone fresca e savoiardi affogati al caffè espresso.</p>
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                            <span class="text-stone-400">Fatto in Casa</span>
+                            <button onclick="openMenuModal('Tiramisù Armando')" class="text-brand-darkGreen font-semibold hover:underline flex items-center gap-1">Dettagli <i data-lucide="arrow-right" class="w-3 h-3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Full Menu View Button -->
+            <div class="mt-12 text-center">
+                <button onclick="window.location.href='/menu.html'" class="bg-white hover:bg-brand-cream text-brand-darkGreen border border-stone-300 text-xs font-semibold uppercase tracking-wider px-8 py-4 rounded-full shadow-sm hover:shadow-md transition-all inline-flex items-center gap-2">
+                    <i data-lucide="book-open" class="w-4 h-4 text-brand-gold"></i>
+                    <span data-i18n="menu.viewFull">Vedi la Carta Completa e Prezzi</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="cantina" class="bg-brand-darkGreen text-white py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold block">
+                        SOMMELIER FABIANA GARGIOLI
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold leading-tight">
+                        La Cantina & l'Amore per i Vignaioli
+                    </h2>
+                    <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed">
+                        La carta dei vini di Armando al Pantheon è curata personalmente da **Fabiana Gargioli**. Un viaggio sensoriale attraverso le eccellenze dei vitigni autoctoni italiani, con un occhio di riguardo ai piccoli produttori artigianali e biologici.
+                    </p>
+                    <p class="text-stone-300 text-sm font-light leading-relaxed">
+                        Inoltre, la famiglia partecipa a speciali iniziative di solidarietà, tra cui la selezione di etichette benefiche per sostenere l'Ospedale Pediatrico Bambino Gesù.
+                    </p>
+
+                    <!-- Featured Wines Pills -->
+                    <div class="pt-2 flex flex-wrap gap-2 text-xs">
+                        <span class="bg-white/10 px-3 py-1.5 rounded-full border border-white/20 text-brand-gold">Frascati Superiore DOCG</span>
+                        <span class="bg-white/10 px-3 py-1.5 rounded-full border border-white/20 text-brand-gold">Cesanese del Piglio</span>
+                        <span class="bg-white/10 px-3 py-1.5 rounded-full border border-white/20 text-brand-gold">Chianti Classico Riserva</span>
+                        <span class="bg-white/10 px-3 py-1.5 rounded-full border border-white/20 text-brand-gold">Brunello di Montalcino</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80" alt="Sommelier Wine Selection" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                            <div>
+                                <p class="font-serif text-xl font-bold text-white">Oltre 350 Etichette Selezionate</p>
+                                <p class="text-xs text-stone-300 mt-1">Sinfonia ideale in abbinamento ai piatti storici della tradizione romana.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="galleria" class="relative bg-brand-cream py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="max-w-xl mb-12">
+                <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold block mb-2" data-i18n="galleria.tag">
+                    GALLERIA FOTOGRAFICA
+                </span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkGreen mb-4" data-i18n="galleria.title">
+                    Un luogo, un'emozione
+                </h2>
+                <p class="text-stone-600 text-sm sm:text-base font-light" data-i18n="galleria.desc">
+                    Scopri l'atmosfera unica del nostro ristorante attraverso le immagini della nostra sala, dei nostri piatti e dei dettagli curati.
+                </p>
+            </div>
+
+            <!-- Image Carousel Component -->
+            <div class="relative">
+                <div class="overflow-hidden rounded-2xl shadow-2xl border border-stone-200" id="galleryContainer">
+                    <div class="flex transition-transform duration-500 ease-out" id="gallerySlider">
+                        <!-- Slide 1 -->
+                        <div class="w-full flex-shrink-0 relative h-[450px] sm:h-[550px]">
+                            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1600&q=80" alt="Atmosphere" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                                <div>
+                                    <h4 class="font-serif text-2xl font-bold text-white">L'Atmosfera della Sala</h4>
+                                    <p class="text-xs text-stone-300 mt-1">Legno, luce calda e ospitalità romana autentica dal 1961.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="w-full flex-shrink-0 relative h-[450px] sm:h-[550px]">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1600&q=80" alt="Wine Selection" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                                <div>
+                                    <h4 class="font-serif text-2xl font-bold text-white">I Vini Selezionati</h4>
+                                    <p class="text-xs text-stone-300 mt-1">La cantina curata dalla Sommelier Fabiana Gargioli.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="w-full flex-shrink-0 relative h-[450px] sm:h-[550px]">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80" alt="Pantheon View" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                                <div>
+                                    <h4 class="font-serif text-2xl font-bold text-white">A due passi dal Pantheon</h4>
+                                    <p class="text-xs text-stone-300 mt-1">Salita de' Crescenzi 31, nel cuore della capitale.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="flex items-center justify-between mt-6">
+                    <span class="text-xs font-mono font-bold text-brand-darkGreen" id="slideIndicator">01 / 03</span>
+                    <div class="flex gap-3">
+                        <button onclick="prevSlide()" class="p-3 rounded-full bg-white hover:bg-brand-darkGreen hover:text-white border border-stone-300 text-stone-800 transition-all">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="nextSlide()" class="p-3 rounded-full bg-white hover:bg-brand-darkGreen hover:text-white border border-stone-300 text-stone-800 transition-all">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contatti" class="py-24 bg-[#FAF8F5]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left Reservation Card -->
+                <div class="lg:col-span-7 bg-brand-darkGreen rounded-3xl p-8 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden shadow-xl">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold block mb-3" data-i18n="booking.cardTag">
+                            PRENOTA IL TUO TAVOLO
+                        </span>
+                        
+                        <h3 class="font-serif text-3xl sm:text-4xl font-bold mb-4" data-i18n="booking.cardTitle">
+                            Vivi l'esperienza Armando al Pantheon
+                        </h3>
+
+                        <p class="text-stone-300 text-sm font-light mb-8 max-w-md" data-i18n="booking.cardDesc">
+                            Prenota ora e lasciati conquistare dai nostri piatti, nel cuore di Roma. Date le dimensioni intime della nostra sala (14 tavoli), la prenotazione online è fortemente consigliata.
+                        </p>
+
+                        <!-- Opening Hours & Rules -->
+                        <div class="space-y-4 mb-8 text-xs text-stone-300">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="clock" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+                                <div>
+                                    <p class="font-bold uppercase text-white" data-i18n="booking.hoursTitle">Orari di Apertura</p>
+                                    <p>Pranzo: 12:30 – 15:00</p>
+                                    <p>Cena: Lunedì – Venerdì 18:00 – 23:00</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="calendar-x" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+                                <div>
+                                    <p class="font-bold uppercase text-white" data-i18n="booking.closedTitle">Chiusure Ufficiali</p>
+                                    <p>Sabato sera & Domenica tutto il giorno</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="phone" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+                                <div>
+                                    <p class="font-bold uppercase text-white">Telefono & Assistenza</p>
+                                    <p class="font-mono text-white text-sm">+213674361675</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book CTA Button -->
+                    <button onclick="openBookingModal()" class="w-full sm:w-auto bg-white text-brand-darkGreen hover:bg-brand-cream text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-full shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4 text-brand-gold"></i>
+                        <span data-i18n="booking.btn">Prenota ora il tuo tavolo</span>
+                    </button>
+                </div>
+
+                <!-- Right Commitment Card -->
+                <div class="lg:col-span-5 bg-white rounded-3xl p-8 sm:p-12 border border-stone-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-6" data-i18n="commitment.title">
+                            Il nostro impegno
+                        </h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 rounded-2xl bg-brand-cream text-brand-darkGreen shrink-0">
+                                    <i data-lucide="wine" class="w-6 h-6 text-brand-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-stone-900 text-base" data-i18n="commitment.wineTitle">Vini e Vignaioli</h4>
+                                    <p class="text-xs text-stone-500 mt-1 leading-relaxed" data-i18n="commitment.wineDesc">
+                                        Con la Sommelier Fabiana Gargioli, curiamo una selezione di vignaioli autentici ed eccellenze territoriali.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 rounded-2xl bg-brand-cream text-brand-darkGreen shrink-0">
+                                    <i data-lucide="heart-handshake" class="w-6 h-6 text-brand-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-stone-900 text-base" data-i18n="commitment.charityTitle">Sostegno a iniziative benefiche</h4>
+                                    <p class="text-xs text-stone-500 mt-1 leading-relaxed" data-i18n="commitment.charityDesc">
+                                        Sosteniamo l'Ospedale Pediatrico Bambino Gesù e progetti di solidarietà con produzioni enologiche dedicate.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="p-3 rounded-2xl bg-brand-cream text-brand-darkGreen shrink-0">
+                                    <i data-lucide="users" class="w-6 h-6 text-brand-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-stone-900 text-base" data-i18n="commitment.hospitalityTitle">Accoglienza di Famiglia</h4>
+                                    <p class="text-xs text-stone-500 mt-1 leading-relaxed" data-i18n="commitment.hospitalityDesc">
+                                        Servizio familiare e attento, che fa sentire ogni ospite come a casa propria fin dal primo momento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Phone Bar -->
+                    <div class="mt-8 pt-6 border-t border-stone-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-wider text-stone-400 font-bold">Telefono / Contatto</p>
+                            <p class="font-mono text-stone-900 font-bold text-sm">+213674361675</p>
+                        </div>
+                        <a href="tel:+213674361675" class="p-3 rounded-full bg-stone-100 hover:bg-brand-gold hover:text-white transition-colors text-stone-700">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="py-20 bg-brand-cream/50 border-t border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold block mb-2">CULTURA & LIBRI</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-darkGreen">Il Mondo Sta Tutto in Cucina</h2>
+                <p class="text-stone-600 text-xs sm:text-sm mt-2 font-light">
+                    Le storie, i segreti e le ricette della famiglia Gargioli raccontati da Claudio Gargioli per tramandare l'anima della cucina romana.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
+                <div class="relative h-64 rounded-2xl overflow-hidden bg-stone-100">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Book Cover" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-4">
+                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest">Edizioni di Pregio</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900">Racconti e Ricette della Tradizione</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Un libro da leggere e da gustare. Claudio Gargioli raccoglie aneddoti di oltre sessant'anni di attività a Salita de' Crescenzi, tra clienti illustri, poeti e piatti indimenticabili.
+                    </p>
+                    <button onclick="alert('Richiesta informazioni inviata! Vi risponderemo al più presto.')" class="inline-flex items-center gap-2 text-xs font-bold text-brand-darkGreen hover:text-brand-gold uppercase tracking-wider">
+                        <span>Richiedi una copia in ristorante</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-900 text-white py-16 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-stone-800">
+                
+                <!-- Footer Logo -->
+                <a href="#" class="flex flex-col items-center md:items-start">
+                    <span class="font-serif text-2xl tracking-wider font-bold text-white">
+                        Armando
+                    </span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-brand-gold font-medium -mt-1">
+                        AL PANTHEON · DAL 1961
+                    </span>
+                </a>
+
+                <!-- Quick Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-xs text-stone-400">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#storia" class="hover:text-white transition-colors">La Storia</a>
+                    <a href="#menu" class="hover:text-white transition-colors">Il Menu</a>
+                    <a href="#cantina" class="hover:text-white transition-colors">La Cantina</a>
+                    <a href="#galleria" class="hover:text-white transition-colors">Galleria</a>
+                    <a href="#contatti" class="hover:text-white transition-colors">Contatti</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex items-center space-x-4 text-stone-400">
+                    <a href="https://facebook.com" target="_blank" class="p-2 rounded-full bg-stone-800 hover:text-white hover:bg-brand-gold transition-all">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="p-2 rounded-full bg-stone-800 hover:text-white hover:bg-brand-gold transition-all">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Details -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+                <div class="flex flex-wrap items-center justify-center gap-4 text-center md:text-left">
+                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-gold"></i> Salita de' Crescenzi 31, 00186 Roma, Italia</span>
+                    <span class="flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-gold"></i> +213674361675</span>
+                    <span class="flex items-center gap-1"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-gold"></i> infoarmandoalpantheon@gmail.com</span>
+                </div>
+
+                <div class="flex items-center gap-4 text-[11px]">
+                    <a href="#" class="hover:text-stone-300">Privacy Policy</a>
+                    <span>·</span>
+                    <a href="#" class="hover:text-stone-300">Cookie Policy</a>
+                    <span>·</span>
+                    <span>© 2026 Armando al Pantheon</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal (Prenota un Tavolo) -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-stone-200 transform transition-all my-8">
+            <div class="bg-brand-darkGreen text-white p-6 relative">
+                <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-stone-300 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Prenotazione Online</span>
+                <h3 class="font-serif text-2xl font-bold">Riserva un Tavolo da Armando</h3>
+            </div>
+
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="p-6 space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Data</label>
+                        <input type="date" name="date" required id="bookDate" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Ospiti</label>
+                        <select name="guests" required id="bookGuests" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                            <option value="1">1 Persona</option>
+                            <option value="2" selected>2 Persone</option>
+                            <option value="3">3 Persone</option>
+                            <option value="4">4 Persone</option>
+                            <option value="5">5+ Persone (Richiesta)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Turno Orario</label>
+                    <select name="time" required id="bookTime" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                        <optgroup label="Pranzo (12:30 - 15:00)">
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:00">14:00</option>
+                        </optgroup>
+                        <optgroup label="Cena (18:00 - 23:00 - No Sabato/Domenica)">
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Nome e Cognome</label>
+                    <input type="text" name="name" id="bookName" required minlength="2" maxlength="100" autocomplete="name" placeholder="Mario Rossi" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Telefono</label>
+                        <input type="tel" name="phone" id="bookPhone" required value="+213674361675" autocomplete="tel" maxlength="30" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Email</label>
+                        <input type="email" name="email" id="bookEmail" required autocomplete="email" maxlength="254" placeholder="nome@email.com" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Note / Allergie</label>
+                    <textarea name="notes" id="bookNotes" rows="2" maxlength="1000" placeholder="Segnala qui intolleranze o richieste speciali..." class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none"></textarea>
+                </div>
+
+                <p id="bookingFeedback" role="status" aria-live="polite" class="hidden text-sm rounded-xl p-3 bg-stone-100 text-stone-800"></p>
+                <div class="pt-2">
+                    <button id="bookingSubmit" type="submit" class="w-full bg-brand-darkGreen hover:bg-brand-lightGreen text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all shadow-md">
+                        Conferma Prenotazione
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dish Details Modal -->
+    <div id="dishModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-stone-200">
+            <div class="relative h-56 bg-stone-100">
+                <img id="dishModalImg" src="" alt="Dish Detail" class="w-full h-full object-cover">
+                <button onclick="closeDishModal()" class="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 id="dishModalTitle" class="font-serif text-2xl font-bold text-stone-900"></h3>
+                    <span id="dishModalPrice" class="bg-brand-darkGreen text-brand-gold font-bold text-xs px-3 py-1 rounded-full"></span>
+                </div>
+                <p id="dishModalDesc" class="text-xs text-stone-600 leading-relaxed mb-4"></p>
+                
+                <div class="p-3 bg-stone-50 rounded-xl border border-stone-200 text-xs text-stone-500 space-y-1">
+                    <p class="font-bold text-stone-700 uppercase">Ingredienti d'eccellenza:</p>
+                    <p id="dishModalIngredients"></p>
+                </div>
+
+                <button onclick="closeDishModal(); openBookingModal();" class="mt-6 w-full bg-brand-gold text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl hover:bg-yellow-600 transition-colors">
+                    Prenota per assaggiare questo piatto
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Menu Viewer Modal -->
+    <div id="fullMenuModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-3xl w-full my-8 overflow-hidden shadow-2xl">
+            <div class="bg-brand-darkGreen text-white p-6 flex items-center justify-between">
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Carta Ristorante Completa</span>
+                    <h3 class="font-serif text-2xl font-bold">Menu Armando al Pantheon</h3>
+                </div>
+                <button onclick="closeFullMenuModal()" class="text-stone-300 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8 space-y-8 max-h-[70vh] overflow-y-auto">
+                <!-- Antipasti -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold text-brand-darkGreen border-b border-brand-gold/40 pb-2 mb-4">Antipasti</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Mozzarella & Carciofi Arrostiti</p>
+                                <p class="text-stone-500">Bufala DOP campana e carciofi croccanti.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 16.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Bruschetta Romana all'Olio EVO DOP</p>
+                                <p class="text-stone-500">Pane casereccio con pomodoro fresco e aglio.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 9.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primi -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold text-brand-darkGreen border-b border-brand-gold/40 pb-2 mb-4">Primi Piatti</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Rigatoni alla Carbonara</p>
+                                <p class="text-stone-500">Guanciale di Amatrice, tuorli, pecorino romano e pepe.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 18.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Tonnarelli Cacio e Pepe</p>
+                                <p class="text-stone-500">Pecorino Romano DOP e pepe di Sarawak.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 17.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Rigatoni all'Amatriciana</p>
+                                <p class="text-stone-500">Pomodoro San Marzano, guanciale e pecorino.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 18.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Spaghetti alla Gricia</p>
+                                <p class="text-stone-500">Guanciale croccante, pecorino e pepe nero.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 18.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondi -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold text-brand-darkGreen border-b border-brand-gold/40 pb-2 mb-4">Secondi Piatti</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Saltimbocca alla Romana</p>
+                                <p class="text-stone-500">Vitello, prosciutto di Parma e salvia fresca.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 22.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Trippa alla Romana</p>
+                                <p class="text-stone-500">Stufata al pomodoro con mentuccia e pecorino.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 20.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <div>
+                                <p class="font-bold text-stone-900">Pajata Tradizionale</p>
+                                <p class="text-stone-500"> مصارين العجول المحمصة بالصلصة التقليدية.</p>
+                            </div>
+                            <span class="font-bold text-brand-darkGreen">€ 22.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-stone-50 p-4 text-center">
+                <button onclick="closeFullMenuModal(); openBookingModal();" class="bg-brand-darkGreen text-white text-xs font-bold uppercase tracking-wider py-3 px-6 rounded-full">
+                    Prenota un Tavolo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-brand-darkGreen text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-brand-gold">
+        <i data-lucide="check-circle" class="w-5 h-5 text-brand-gold"></i>
+        <span id="toastMsg" class="text-xs font-medium"></span>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        let currentLang = 'IT';
+
+        const i18n = {
+            IT: {
+                "nav.home": "Home",
+                "nav.storia": "La Storia",
+                "nav.menu": "Il Menu",
+                "nav.cantina": "La Cantina",
+                "nav.galleria": "Galleria",
+                "nav.news": "News & Libri",
+                "nav.contatti": "Contatti",
+                "nav.book": "Prenota un Tavolo",
+                "hero.subtitle": "RISTORANTE · OSTERIA · ROMA",
+                "hero.title": "Tradizione dal 1961",
+                "hero.description": "Un piccolo ristorante nel cuore di Roma, a pochi passi dal Pantheon. Cucina autentica, tradizione di famiglia, sapori senza tempo.",
+                "hero.cta": "Scopri la nostra storia",
+                "hero.bookBtn": "Prenota Ora",
+                "hero.scroll": "Scorri per esplorare",
+                "storia.tag": "LA NOSTRA STORIA",
+                "storia.title": "Una famiglia, una passione",
+                "storia.text1": "Dal 1961 la famiglia Gargioli porta avanti la tradizione culinaria romana, con la stessa passione e dedizione di sempre. Un luogo intimo e autentico, dove la storia si unisce al gusto.",
+                "storia.text2": "Fondata da Armando Gargioli, l'osteria è diventata un punto di riferimento culturale e gastronomico. Oggi, Claudio, Fabiana e Chiara Maria mantengono viva l'anima di un tempo.",
+                "storia.more": "Scopri di più",
+                "storia.photo1Sub": "Il Fondatore nel laboratorio",
+                "storia.photo2Sub": "14 Tavoli sotto travi in legno",
+                "menu.subtitle": "CARTA DEL RISTORANTE",
+                "menu.title": "I sapori della tradizione romana",
+                "menu.desc": "Tutti i piatti storici preparati secondo la ricetta originale della famiglia Gargioli con ingredienti d'eccellenza.",
+                "menu.viewFull": "Vedi la Carta Completa e Prezzi",
+                "galleria.tag": "GALLERIA FOTOGRAFICA",
+                "galleria.title": "Un luogo, un'emozione",
+                "galleria.desc": "Scopri l'atmosfera unica del nostro ristorante attraverso le immagini della nostra sala, dei nostri piatti e dei dettagli curati.",
+                "booking.cardTag": "PRENOTA IL TUO TAVOLO",
+                "booking.cardTitle": "Vivi l'esperienza Armando al Pantheon",
+                "booking.cardDesc": "Prenota ora e lasciati conquistare dai nostri piatti, nel cuore di Roma. Date le dimensioni intime della nostra sala (14 tavoli), la prenotazione online è fortemente consigliata.",
+                "booking.hoursTitle": "Orari di Apertura",
+                "booking.closedTitle": "Chiusure Ufficiali",
+                "booking.btn": "Prenota ora il tuo tavolo",
+                "commitment.title": "Il nostro impegno",
+                "commitment.wineTitle": "Vini e Vignaioli",
+                "commitment.wineDesc": "Con la Sommelier Fabiana Gargioli, curiamo una selezione di vignaioli autentici ed eccellenze territoriali.",
+                "commitment.charityTitle": "Sostegno a iniziative benefiche",
+                "commitment.charityDesc": "Sosteniamo l'Ospedale Pediatrico Bambino Gesù e progetti di solidarietà con produzioni enologiche dedicate.",
+                "commitment.hospitalityTitle": "Accoglienza di Famiglia",
+                "commitment.hospitalityDesc": "Servizio familiare e attento, che fa sentire ogni ospite come a casa propria fin dal primo momento."
+            },
+            EN: {
+                "nav.home": "Home",
+                "nav.storia": "Our Story",
+                "nav.menu": "Menu",
+                "nav.cantina": "The Cellar",
+                "nav.galleria": "Gallery",
+                "nav.news": "News & Books",
+                "nav.contatti": "Contact",
+                "nav.book": "Book a Table",
+                "hero.subtitle": "RESTAURANT · OSTERIA · ROME",
+                "hero.title": "Tradition Since 1961",
+                "hero.description": "A small restaurant in the heart of Rome, steps away from the Pantheon. Authentic cuisine, family tradition, timeless flavors.",
+                "hero.cta": "Discover Our Story",
+                "hero.bookBtn": "Book Now",
+                "hero.scroll": "Scroll to explore",
+                "storia.tag": "OUR STORY",
+                "storia.title": "One Family, One Passion",
+                "storia.text1": "Since 1961, the Gargioli family has carried forward Roman culinary traditions with unwavering passion and dedication. An intimate and authentic place where history meets flavor.",
+                "storia.text2": "Founded by Armando Gargioli, the osteria has become a cultural landmark. Today, Claudio, Fabiana, and Chiara Maria keep its heritage alive.",
+                "storia.more": "Read More",
+                "storia.photo1Sub": "Founder in his kitchen",
+                "storia.photo2Sub": "14 Tables under wooden beams",
+                "menu.subtitle": "RESTAURANT MENU",
+                "menu.title": "Flavors of Roman Tradition",
+                "menu.desc": "All historic dishes prepared according to the Gargioli family's original recipes using top-tier ingredients.",
+                "menu.viewFull": "View Full Menu & Prices",
+                "galleria.tag": "PHOTO GALLERY",
+                "galleria.title": "A Place, An Emotion",
+                "galleria.desc": "Discover the unique atmosphere of our restaurant through photos of our dining room, dishes, and curated details.",
+                "booking.cardTag": "RESERVE YOUR TABLE",
+                "booking.cardTitle": "Experience Armando al Pantheon",
+                "booking.cardDesc": "Book now and enjoy our historic recipes in the heart of Rome. Due to our cozy size (14 tables), advance booking is highly recommended.",
+                "booking.hoursTitle": "Opening Hours",
+                "booking.closedTitle": "Official Closing",
+                "booking.btn": "Book Table Now",
+                "commitment.title": "Our Commitment",
+                "commitment.wineTitle": "Wines & Vignerons",
+                "commitment.wineDesc": "Sommelier Fabiana Gargioli curates authentic local vignerons and territorial excellence.",
+                "commitment.charityTitle": "Supporting Social Causes",
+                "commitment.charityDesc": "We support the Bambino Gesù Children's Hospital with dedicated charitable cuvées.",
+                "commitment.hospitalityTitle": "Family Hospitality",
+                "commitment.hospitalityDesc": "Warm and attentive family service that makes every guest feel truly at home."
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'IT' ? 'EN' : 'IT';
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
+                if (i18n[currentLang][key]) {
+                    elem.textContent = i18n[currentLang][key];
+                }
+            });
+            document.getElementById('langToggle').innerHTML = currentLang === 'IT' ? 'IT / <span class="text-stone-400">EN</span>' : '<span class="text-stone-400">IT</span> / EN';
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function filterMenu(category) {
+            const cards = document.querySelectorAll('.dish-card');
+            const buttons = document.querySelectorAll('.category-tab');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-darkGreen', 'text-white');
+                btn.classList.add('bg-white', 'text-stone-700');
+            });
+
+            event.target.classList.add('active', 'bg-brand-darkGreen', 'text-white');
+            event.target.classList.remove('bg-white', 'text-stone-700');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        const dishData = {
+            'Rigatoni alla Carbonara': {
+                price: '€ 18.00',
+                img: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=800&q=80',
+                desc: 'La regina della cucina romana. Cremosità naturale ottenuta senza panna, ma con tuorli freschi e Pecorino Romano.',
+                ingredients: 'Rigatoni, Guanciale di Amatrice, Tuorli freschi, Pecorino Romano DOP, Pepe nero macinato.'
+            },
+            'Tonnarelli Cacio e Pepe': {
+                price: '€ 17.00',
+                img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281316?auto=format&fit=crop&w=800&q=80',
+                desc: 'Un capolavoro di semplicità: mantecatura perfetta di pecorino romano e pepe tostato.',
+                ingredients: 'Tonnarelli freschi all\'uovo, Pecorino Romano DOP 18 mesi, Pepe di Sarawak.'
+            },
+            'Rigatoni all\'Amatriciana': {
+                price: '€ 18.00',
+                img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80',
+                desc: 'Salsa ricca e avvolgente con guanciale rosolato e pomodori San Marzano.',
+                ingredients: 'Rigatoni, Pomodoro San Marzano, Guanciale croccante, Vino bianco, Pecorino Romano DOP.'
+            },
+            'Saltimbocca alla Romana': {
+                price: '€ 22.00',
+                img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+                desc: 'Fettine di vitello veloci e saporite, guarnite con prosciutto di Parma e salvia.',
+                ingredients: 'Vitello magro, Prosciutto di Parma DOP, Salvia fresca, Burro, Vino bianco.'
+            },
+            'Trippa alla Romana': {
+                price: '€ 20.00',
+                img: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80',
+                desc: 'Ricetta di casa Gargioli con mentuccia e pecorino abbondante.',
+                ingredients: 'Trippa di bovino, Pomodoro San Marzano, Mentuccia selvatica romana, Pecorino Romano DOP.'
+            },
+            'Pajata Tradizionale': {
+                price: '€ 22.00',
+                img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
+                desc: 'Piatto raro della tradizione del quinto quarto romano.',
+                ingredients: 'Pajata di vitello da latte, Pomodoro, Cipolla, Vino bianco, Pecorino Romano.'
+            },
+            'Mozzarella & Carciofi': {
+                price: '€ 16.00',
+                img: 'https://images.unsplash.com/photo-1592417817098-8f3d6ef23a85?auto=format&fit=crop&w=800&q=80',
+                desc: 'Morbida mozzarella bufalina fresca abbinata a carciofi romaneschi marinati.',
+                ingredients: 'Mozzarella di bufala campana DOP, Carciofi romani, Olio extravergine d\'oliva.'
+            },
+            'Carciofo alla Romana': {
+                price: '€ 12.00',
+                img: 'https://images.unsplash.com/photo-1515516969-d4008cc6241a?auto=format&fit=crop&w=800&q=80',
+                desc: 'Cotto a fuoco lento a testa in giù con erbe aromatiche romane.',
+                ingredients: 'Carciofo Romanesco, Mentuccia, Aglio, Olio EVO.'
+            },
+            'Tiramisù Armando': {
+                price: '€ 10.00',
+                img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80',
+                desc: 'Dessert morbido e fatto in casa ogni mattina.',
+                ingredients: 'Mascarpone, Savoiardi, Caffè espresso, Cacao amaro.'
+            }
+        };
+
+        function openMenuModal(dishName) {
+            const data = dishData[dishName];
+            if (!data) return;
+
+            document.getElementById('dishModalTitle').textContent = dishName;
+            document.getElementById('dishModalPrice').textContent = data.price;
+            document.getElementById('dishModalImg').src = data.img;
+            document.getElementById('dishModalDesc').textContent = data.desc;
+            document.getElementById('dishModalIngredients').textContent = data.ingredients;
+
+            document.getElementById('dishModal').classList.remove('hidden');
+        }
+
+        function closeDishModal() {
+            document.getElementById('dishModal').classList.add('hidden');
+        }
+
+        function openFullMenuModal() {
+            document.getElementById('fullMenuModal').classList.remove('hidden');
+        }
+        function closeFullMenuModal() {
+            document.getElementById('fullMenuModal').classList.add('hidden');
+        }
+
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const minDate = new Date(); minDate.setDate(minDate.getDate() + 1);
+            const minValue = minDate.getFullYear() + '-' + String(minDate.getMonth()+1).padStart(2,'0') + '-' + String(minDate.getDate()).padStart(2,'0');
+            document.getElementById('bookDate').min = minValue;
+            document.getElementById('bookDate').value = minValue;
+            const feedback = document.getElementById('bookingFeedback'); if (feedback) { feedback.classList.add('hidden'); feedback.textContent = ''; }
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        async function handleBookingSubmit(e) {
+            e.preventDefault();
+            const form = e.currentTarget;
+            const feedback = document.getElementById('bookingFeedback');
+            const submit = document.getElementById('bookingSubmit');
+            const dateValue = document.getElementById('bookDate').value;
+            const day = new Date(dateValue + 'T12:00:00').getDay();
+            feedback.classList.remove('hidden');
+            if (day === 0) { feedback.textContent = 'Siamo chiusi la Domenica. Scegli un altro giorno.'; return; }
+            const payload = {
+                name: document.getElementById('bookName').value.trim(),
+                phone: document.getElementById('bookPhone').value.trim(),
+                email: document.getElementById('bookEmail').value.trim(),
+                date: dateValue,
+                time: document.getElementById('bookTime').value,
+                guests: Number(document.getElementById('bookGuests').value),
+                notes: document.getElementById('bookNotes').value.trim()
+            };
+            submit.disabled = true; submit.classList.add('opacity-60');
+            feedback.textContent = 'Verifica della disponibilità…';
+            try {
+                const response = await fetch('/api/reservations', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok) throw new Error(result.error || 'Non è stato possibile completare la prenotazione. Riprova.');
+                feedback.textContent = 'Richiesta ricevuta! Codice prenotazione: ' + result.id + '. La prenotazione è in attesa di conferma del ristorante.';
+                form.reset(); document.getElementById('bookPhone').value = '+213674361675';
+            } catch (error) { feedback.textContent = error.message || 'Errore di connessione. Riprova o chiamaci.'; }
+            finally { submit.disabled = false; submit.classList.remove('opacity-60'); }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateSlide() {
+            const slider = document.getElementById('gallerySlider');
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.getElementById('slideIndicator').textContent = `0${currentSlide + 1} / 0${totalSlides}`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
+    </script>
+</body>
+</html>
