@@ -17,4 +17,4 @@ tag = "v1"
 new_sqlite_classes = ["BookingCoordinator"]
 
 [vars]
-admine-token = "abdou-hs"
+admine-token = "abdou"
