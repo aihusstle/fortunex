@@ -13,6 +13,7 @@ export default {
    if (url.pathname === '/api/health' && request.method === 'GET') return json({ok:true,service:'armando-booking',timestamp:new Date().toISOString()});
    if (url.pathname === '/api/reservations' && request.method === 'POST') {
     let body; try { body=await request.json(); } catch { return json({error:'Dati non validi. Controlla il modulo.'},400); }
+    if (!body || typeof body !== 'object' || Array.isArray(body)) return json({error:'Dati non validi. Controlla il modulo.'},400);
     const name=cleanString(body.name,100), phone=cleanString(body.phone,30), email=cleanString(body.email,254), date=body.date, time=body.time, guests=Number(body.guests), notes=cleanString(body.notes,1000);
     if (name.length<2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || phone.replace(/[^0-9]/g,'').length<7 || !validDate(date) || !ALLOWED_TIMES.has(time) || !Number.isInteger(guests) || guests<1 || guests>6) return json({error:'Controlla nome, telefono, email, data, orario e numero di ospiti.'},422);
     const today = romeClock(); const todayStr = today.date;
