@@ -16,7 +16,7 @@ database_id = "fdde46b4-0b42-4306-82c2-1a99b02ef9fe"
  
 [[migrations]]
 tag = "v1"
-new_sqlite_classes = ["BookingCoordinator"]
+new_sqlite_classes = ["db"]
 
 [vars]
 admine-token = "abdou"
