@@ -66,7 +66,7 @@ export class BookingCoordinator {
     });
     if(result.conflict) return json({error:'Questo orario è al completo. Scegli un altro orario o contattaci.'},409);
     return json({ok:true,id:result.id,status:'pending'},201);
-   } catch(e) { return json({error:'Non è stato possibile salvare la richiesta. Riprova tra poco.'},500); }
+   } catch(e) { console.error('BookingCoordinator create failed:', e?.name || 'UnknownError'); return json({error:'Non è stato possibile salvare la richiesta. Riprova tra poco.'},500); }
   }
   if(url.pathname==='/admin' && request.method==='GET') {
    const date=url.searchParams.get('date');
