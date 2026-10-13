@@ -913,7 +913,7 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Telefono</label>
-                        <input type="tel" name="phone" id="bookPhone" required value="+213674361675" autocomplete="tel" maxlength="30" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
+                        <input type="tel" name="phone" id="bookPhone" required placeholder="+39 …" autocomplete="tel" maxlength="30" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-brand-gold outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Email</label>
@@ -1326,7 +1326,7 @@
                 const result = await response.json().catch(() => ({}));
                 if (!response.ok) throw new Error(result.error || 'Non è stato possibile completare la prenotazione. Riprova.');
                 feedback.textContent = 'Richiesta ricevuta! Codice prenotazione: ' + result.id + '. La prenotazione è in attesa di conferma del ristorante.';
-                form.reset(); document.getElementById('bookPhone').value = '+213674361675';
+                form.reset();
             } catch (error) { feedback.textContent = error.message || 'Errore di connessione. Riprova o chiamaci.'; }
             finally { submit.disabled = false; submit.classList.remove('opacity-60'); }
         }
