@@ -17,4 +17,4 @@ tag = "v1"
 new_sqlite_classes = ["BookingCoordinator"]
 
 [vars]
-# Set a strong ADMIN_TOKEN with `npx wrangler secret put ADMIN_TOKEN`.
+# admin.html" = "admin.html
