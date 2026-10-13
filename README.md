@@ -22,22 +22,19 @@ This project preserves the existing homepage's visual design and adds dedicated 
 
 ## Deploy to Cloudflare
 
-Requirements: Node.js 20+, a Cloudflare account, and permission to create Workers/Durable Objects.
+Requirements: a Cloudflare account with permission to deploy Workers and create Durable Objects.
+
+**Configure the admin secret in Cloudflare before deploying:** open Workers & Pages → select `armando-al-pantheon` → Settings → Variables and Secrets → Add → choose **Secret**, use the name `ADMIN_TOKEN`, and generate a long unique value. Never put the token in `wrangler.toml`, HTML, or GitHub. If you use Wrangler from a computer instead, `npx wrangler secret put ADMIN_TOKEN` does the same thing.
+
+Deploy from a computer/CI environment with Node.js 20+ by running:
 
 ```bash
 npm install
-npx wrangler login
-# Create a strong unique secret. Do not commit it to source control.
-npx wrangler secret put ADMIN_TOKEN
 npm run check
-npm run dev
-```
-
-Test locally at the URL printed by Wrangler, then deploy:
-
-```bash
 npm run deploy
 ```
+
+You do not need to run Node.js on your phone. The GitHub repository alone does not deploy the Worker unless a Cloudflare deployment integration or build pipeline is configured.
 
 After deployment:
 
