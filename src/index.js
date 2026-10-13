@@ -23,6 +23,7 @@ export default {
     return env.BOOKING_COORDINATOR.get(id).fetch('https://booking.internal/create',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name,phone,email,date,time,guests,notes})});
    }
    if (url.pathname === '/api/admin/reservations') {
+    if (!['GET','POST'].includes(request.method)) return json({error:'Metodo non consentito.'},405,{'allow':'GET, POST'});
     if (!env.ADMIN_TOKEN) return json({error:'Configurazione admin incompleta.'},503);
     const token=(request.headers.get('authorization')||'').replace(/^Bearer\s+/i,'');
     if (!token || token !== env.ADMIN_TOKEN) return json({error:'Non autorizzato.'},401);
@@ -59,7 +60,7 @@ export class BookingCoordinator {
     const result=this.ctx.storage.transactionSync(()=>{
      const start=minutes(b.time), end=start+120;
      const active=sql.exec(`SELECT id,start_minutes FROM reservations WHERE date=? AND status IN ('pending','confirmed') AND start_minutes < ? AND start_minutes + 120 > ?`,b.date,end,start).toArray();
-     if(active.length>=14) return {conflict:true};
+     if(active.length>0) return {conflict:true};
      const id='ARM-'+crypto.randomUUID().replaceAll('-','').slice(0,10).toUpperCase(); const now=new Date().toISOString();
      sql.exec(`INSERT INTO reservations(id,name,phone,email,date,time,start_minutes,guests,notes,status,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,'pending',?,?)`,id,b.name,b.phone,b.email,b.date,b.time,start,b.guests,b.notes,now,now);
      return {id};
@@ -81,7 +82,7 @@ export class BookingCoordinator {
    if(b.status==='confirmed' && row.status==='cancelled') return json({error:'Una prenotazione annullata non può essere confermata.'},409);
    if(b.status==='confirmed') {
     const start=minutes(row.time); const active=sql.exec(`SELECT id FROM reservations WHERE date=? AND id<>? AND status IN ('pending','confirmed') AND start_minutes < ? AND start_minutes + 120 > ?`,row.date,row.id,start+120,start).toArray();
-    if(active.length>=14) return json({error:'Capacità raggiunta per questo intervallo.'},409);
+    if(active.length>0) return json({error:'Esiste già una prenotazione attiva che si sovrappone a questo intervallo.'},409);
    }
    sql.exec('UPDATE reservations SET status=?,updated_at=? WHERE id=?',b.status,new Date().toISOString(),b.id);
    return json({ok:true,id:b.id,status:b.status});
